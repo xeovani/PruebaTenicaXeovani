@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.pruebatecnicaxeovani.dataModel.entitiesLocation.Location
 import com.example.pruebatecnicaxeovani.room.DaoLastLocation
 
-@Database(entities = [Location::class], version = 3, exportSchema = false)
+@Database(entities = [Location::class], version = 6, exportSchema = false)
 abstract class DatabaseLocation: RoomDatabase() {
     abstract fun daoLocation(): DaoLastLocation
 

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "915814097605",
+    "project_id": "pruebatecnica-xeovani",
+    "storage_bucket": "pruebatecnica-xeovani.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915814097605:android:0cdcec25b81b30b38386ac",
+        "android_client_info": {
+          "package_name": "com.example.pruebatecnicaxeovani"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915814097605-r2t3qbbs6gcqgbjdjbhotrlh9ai3c5qi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCijBSPtDhA8TggfRZ9_ou8CXwiQxx0yj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915814097605-r2t3qbbs6gcqgbjdjbhotrlh9ai3c5qi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

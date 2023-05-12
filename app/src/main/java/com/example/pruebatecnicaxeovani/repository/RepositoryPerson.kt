@@ -58,6 +58,7 @@ class RepositoryPerson {
         private const val CHANNEL_ID = "MY_CHANNEL_ID"
         private var timeSavedLocation:String?= null
         private var getTimeFirebase : String? = null
+        val userLastLocation : HashMap<String, Any>? = HashMap()
 
         private lateinit var fusedLocationClient: FusedLocationProviderClient
 
@@ -235,12 +236,12 @@ class RepositoryPerson {
                                         viewModel.networkConnection.postValue(networkConnection)
                                         //Acediendo a firebase
                                 Log.e("time-->",datetime)
-                                        val userLastLocation : HashMap<String, Any>? = HashMap()
-                                        userLastLocation?.set("location", "${location?.latitude}")
+                                        //Llena el Hashmap
+                                        userLastLocation?.set("latitude", "${location?.latitude}")
                                         userLastLocation?.set("longitude", "${location?.longitude}")
                                         userLastLocation?.set("time", datetime)
 
-                                        //Guarda los datos en firabase
+/*                                        //Guarda los datos en firabase
                                                 dbFirebase
                                                     .collection("user")
                                                     .add(userLastLocation!!)
@@ -249,17 +250,57 @@ class RepositoryPerson {
                                                     }
                                                     .addOnFailureListener {
                                                             e->Log.e(TAG,"Error writing document",e)
-                                                    }
+                                                    }*/
+                                        //Se crea la colecion y agregan los primeroas datos a cloud Firestore
+                                        dbFirebase.collection("user")
+                                            .document("userLocationId")
+                                            .set(userLastLocation!!).addOnSuccessListener {
+                                                Log.e(TAG,"DocumentSnapshot successfully written!")
+                                            }
+                                            .addOnFailureListener {
+                                                e->Log.e(TAG,"Error writing document",e)
+                                            }
+
+                                        //Se obtienen los datos de CloudFirestore
+                                        dbFirebase.collection("user")
+                                            .document("userLocationId")
+                                            .get().addOnSuccessListener {
+                                                var latitude =it.data?.get("latitude").toString()
+                                                var longuitude = it.data?.get("longitude").toString()
+                                                getTimeFirebase = it.data?.get("time").toString()
+
+                                                var listLocation = HashMap<String,String>()
+                                                listLocation["latitude"]= latitude
+                                                listLocation["longitude"] = longuitude
+                                                viewModel.locationLiveData.postValue(listLocation)
+
+                                                //Mostramos la notificacionComponent que avisa que se guardamos la ubicacion cada 5 minutos
+                                                createNotificationChannel(CHANNEL_ID, "Test channel notification",requireActivity)
+                                                createNotification(getTimeFirebase!!, requireActivity)
+                                                Log.e("timelast-->", getTimeFirebase!!)
+                                                //Guardamos la ultima ubicacion en room
+                                                val mLocation = Location(null,latitude,longuitude)
+
+                                                val locationMutableList = mutableListOf(mLocation)
+                                                viewModel.viewModelScope.launch {
+                                                    dbLastLocation!!.daoLocation().insertLastLocation(locationMutableList)
+                                                }
+                                            }
+                                        //Se actualiza el documento de cloud firestore
+                                        dbFirebase.collection("user")
+                                            .document("userLocationId")
+                                            .update(userLastLocation)
+
 
 
 
                                         //Obtener los datos de firabase
-                                        dbFirebase.collection("user")
+/*                                        dbFirebase.collection("user")
                                             .get().addOnSuccessListener { result->
                                                 //obtenemos los valores del documento
                                                 result.forEachIndexed {
                                                     indice, valor->
-                                                    if (indice == 0){
+
                                                         var lat = valor.data.getValue("location").toString()
                                                         var lon = valor.data.getValue("longitude").toString()
 
@@ -275,6 +316,7 @@ class RepositoryPerson {
                                                         createNotificationChannel(CHANNEL_ID, "Test channel notification",requireActivity)
                                                         createNotification(getTimeFirebase!!, requireActivity)
 
+                                                        Log.e("timelast-->", getTimeFirebase!!)
                                              //Guardamos la ultima ubicacion en room
                                                         val mLocation = Location(null,lat,lon)
 
@@ -283,10 +325,10 @@ class RepositoryPerson {
                                                             dbLastLocation!!.daoLocation().insertLastLocation(locationMutableList)
                                                         }
 
-                                                    }
+
 
                                                 }
-                                            }
+                                            }*/
 
                                     }
 
@@ -363,8 +405,11 @@ class RepositoryPerson {
             notificationManager.notify(notificationID, builder);
 
         }
+        fun UploadImage(           context: Context,
+                                   viewModel: LocationViewModel,
+                                   requireActivity: FragmentActivity){
 
-
+        }
 
     }
 }

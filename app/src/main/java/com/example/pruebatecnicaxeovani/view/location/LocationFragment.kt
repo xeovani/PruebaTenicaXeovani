@@ -64,10 +64,10 @@ class LocationFragment : Fragment(), OnMapReadyCallback,GoogleMap.OnMarkerClickL
 
 
         viewModel.locationLiveData.observe(viewLifecycleOwner, Observer {
-            lat = it["location"]
+            lat = it["latitude"]
             long = it["longitude"]
-                Log.e("LocationFragment--->", it["location"]!! + it["longitude"])
-            val location = LatLng(it["location"]!!.toDouble(),it["longitude"]!!.toDouble())
+                Log.e("LocationFragment--->", it["latitude"]!! + it["longitude"])
+            val location = LatLng(it["latitude"]!!.toDouble(),it["longitude"]!!.toDouble())
             val mapFragment = childFragmentManager.findFragmentById(binding.googleMap.id) as SupportMapFragment
                 mapFragment.getMapAsync(this)
 

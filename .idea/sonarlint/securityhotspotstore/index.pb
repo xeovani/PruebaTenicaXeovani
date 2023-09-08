@@ -1,6 +1,4 @@
 
-}
-Mapp/src/main/java/com/example/pruebatecnicaxeovani/view/home/HomeViewModel.kt,2\e\2e0551ae2c47ab4e9101fc38b6413a40388df291
 {
 Kapp/src/main/java/com/example/pruebatecnicaxeovani/room/DaoPopularMovies.kt,6\3\637898a078153699bd806e317f4c8e7469fff137
 {
@@ -27,15 +25,19 @@ Japp/src/main/java/com/example/pruebatecnicaxeovani/room/DaoLastLocation.kt,a\7
 Vapp/src/main/java/com/example/pruebatecnicaxeovani/responses2/movies/ResponseMovies.kt,0\c\0cbc1c2d24f4b634d95b289c99c7a06d03bf87d8
 Ç
 Rapp/src/main/java/com/example/pruebatecnicaxeovani/room/config/DatabaseLocation.kt,2\f\2f54cf7095a66806d7afbf3614546dd2a570cf61
-|
-Lapp/src/main/java/com/example/pruebatecnicaxeovani/view/home/HomeFragment.kt,c\d\cde9d20fe34c2ac282f77c1f1c47f9b2d4f20ed4
 Ü
 Vapp/src/main/java/com/example/pruebatecnicaxeovani/view/dashboard/DashboardFragment.kt,2\c\2cd653394432e9674512368370096f0358990704
 á
 Wapp/src/main/java/com/example/pruebatecnicaxeovani/view/dashboard/DashboardViewModel.kt,1\9\1967fcf061be756c3275efa8cee32623c0ed4c82
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
-r
-Bapp/src/main/java/com/example/pruebatecnicaxeovani/MainActivity.kt,1\b\1b8c08f430157b524f85de16ee66ee2caaf82ae3
+Å
+Qapp/src/main/java/com/example/pruebatecnicaxeovani/view/upload/UploadViewModel.kt,0\c\0c7cca9c178cc014afe4b33704234cdbfc98be51
+w
+Gapp/src/main/java/com/example/pruebatecnicaxeovani/connection/config.kt,0\b\0b33427df634f189c3eda841706e650a764b1543
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+Ñ
+Tapp/src/main/java/com/example/pruebatecnicaxeovani/view/location/LocationFragment.kt,b\a\ba3d52ed2f0dff978090c61466ad9f165622993a
+Ö
+Uapp/src/main/java/com/example/pruebatecnicaxeovani/view/location/LocationViewModel.kt,3\3\33db15732184385cada2961573becc84aee7acd0

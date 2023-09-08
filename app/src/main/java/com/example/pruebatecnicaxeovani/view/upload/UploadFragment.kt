@@ -23,7 +23,6 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
-import kotlinx.android.synthetic.main.fragment_upload.view.*
 import java.io.FileNotFoundException
 import java.io.IOException
 
